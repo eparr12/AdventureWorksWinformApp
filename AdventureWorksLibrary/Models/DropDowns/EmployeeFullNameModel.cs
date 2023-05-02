@@ -8,6 +8,6 @@ namespace AdventureWorksLibrary.Models.DropDowns
 {
     public class EmployeeFullNameModel
     {
-        public string Name { get; set; }
+        public string FullName { get; set; }
     }
 }

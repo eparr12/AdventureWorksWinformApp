@@ -22,6 +22,8 @@ namespace AdventureWorksWinformUI
     public partial class Login : Form
     {
         public static string role;
+        public string _path = @"C:\\AppLog.txt";
+
         public Login()
         {
             InitializeComponent();

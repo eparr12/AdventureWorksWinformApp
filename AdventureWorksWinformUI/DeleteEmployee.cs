@@ -19,7 +19,7 @@ namespace AdventureWorksWinformUI
 {
     public partial class DeleteEmployee : Form
     {
-        List<EmployeeFullNameModel> FullName = new List<EmployeeFullNameModel>();
+        List<EmployeeFullNameModel> FullNameList = new List<EmployeeFullNameModel>();
         public DeleteEmployee()
         {
             InitializeComponent();
@@ -39,11 +39,11 @@ namespace AdventureWorksWinformUI
 
             DataAccess dbEmployeeFullName = new DataAccess();
 
-            FullName = dbEmployeeFullName.GetAnyEmployeeFullName();
+            FullNameList = dbEmployeeFullName.GetNonSalesEmployeeFullName();
 
-            foreach (EmployeeFullNameModel EmployeeFullName in FullName)
+            foreach (EmployeeFullNameModel EmployeeFullName in FullNameList)
             {
-                employeeFullNameComboBox.Items.Add(EmployeeFullName.Name);
+                employeeFullNameComboBox.Items.Add(EmployeeFullName.FullName);
             }
         }
 

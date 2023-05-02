@@ -36,7 +36,7 @@ namespace AdventureWorksWinformUI
 
             foreach (EmployeeFullNameModel EmployeeFullName in FullName)
             {
-                employeeInformationComboBox.Items.Add(EmployeeFullName.Name);
+                employeeInformationComboBox.Items.Add(EmployeeFullName.FullName);
             }
         }
 
@@ -103,7 +103,7 @@ namespace AdventureWorksWinformUI
                     employeeInformationListView5.Items.Add(item5);
 
                     ListViewItem item6 = new ListViewItem(Employee.ShiftName);
-                    item6.SubItems.Add(Employee.HourlyPayRate);
+                    item6.SubItems.Add(Employee.HourlyPayRate.ToString());
                     item6.SubItems.Add(Employee.PayFrequency);
                     item6.SubItems.Add(Employee.VacationHours.ToString());
                     employeeInformationListView6.Items.Add(item6);

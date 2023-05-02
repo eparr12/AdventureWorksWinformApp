@@ -21,7 +21,7 @@ namespace AdventureWorksWinformUI
 {
     public partial class UpdateNonSalesEmployee : Form
     {
-        List<EmployeeFullNameModel> FullName = new List<EmployeeFullNameModel>();
+        List<EmployeeFullNameModel> FullNameList = new List<EmployeeFullNameModel>();
         List<StateProvinceIDModel> StateProvinceID = new List<StateProvinceIDModel>();
         List<DepartmentIDModel> DepartmentID = new List<DepartmentIDModel>();
         public UpdateNonSalesEmployee()
@@ -42,11 +42,11 @@ namespace AdventureWorksWinformUI
 
             DataAccess dbEmployeeFullName = new DataAccess();
 
-            FullName = dbEmployeeFullName.GetNonSalesEmployeeFullName();
+            FullNameList = dbEmployeeFullName.GetNonSalesEmployeeFullName();
 
-            foreach (EmployeeFullNameModel EmployeeFullName in FullName)
+            foreach (EmployeeFullNameModel EmployeeFullName in FullNameList)
             {
-                employeeFullNameComboBox.Items.Add(EmployeeFullName.Name);
+                employeeFullNameComboBox.Items.Add(EmployeeFullName.FullName);
             }
 
             personTypeComboBox.Items.Add("");
@@ -329,14 +329,14 @@ namespace AdventureWorksWinformUI
                         Employee.LastName = lastNameTextBox.Text;
                         Employee.Suffix = suffixComboBox.SelectedItem.ToString();
                         Employee.PhoneNumber = phoneNumberTextBox.Text;
-                        Employee.PhoneNumberTypeID = phoneNumberTypeComboBox.SelectedItem.ToString();
+                        Employee.PhoneNumberType = phoneNumberTypeComboBox.SelectedItem.ToString();
                         Employee.AddressLine1 = addressLine1TextBox.Text;
                         Employee.City = cityTextBox.Text;
-                        Employee.StateProvinceID = stateProvinceID;
+                        Employee.StateOrProvince = stateProvinceID;
                         Employee.PostalCode = postalCodeTextBox.Text;
                         Employee.AddressTypeID = addressTypeIdComboBox.SelectedItem.ToString();
                         Employee.EmailAddress = emailAddressTextBox.Text;
-                        Employee.NationalIDNumber = nationalIdTextBox.Text;
+                        Employee.SocialSecurityNumber = nationalIdTextBox.Text;
                         Employee.LoginID = loginIdTextBox.Text;
                         Employee.JobTitle = jobTitleTextBox.Text;
                         Employee.BirthDate = birthDatePicker.Value;
@@ -347,9 +347,9 @@ namespace AdventureWorksWinformUI
                         Employee.VacationHours = int.Parse(vacationHoursTextBox.Text);
                         Employee.SickLeaveHours = int.Parse(sickLeaveHoursTextBox.Text);
                         Employee.CurrentEmployee = currentEmployee;
-                        Employee.Rate = decimal.Parse(rateTextBox.Text);
+                        Employee.HourlyPayRate = decimal.Parse(rateTextBox.Text);
                         Employee.PayFrequency = payFrequencyComboBox.SelectedItem.ToString();
-                        Employee.DepartmentID = departmentIdComboBox.SelectedItem.ToString();
+                        Employee.JobDepartment = departmentIdComboBox.SelectedItem.ToString();
                         Employee.ShiftID = shiftId;
                         Employee.StartDate = startDatePicker.Value;
                         Employee.FullName = employeeFullNameComboBox.SelectedItem.ToString();

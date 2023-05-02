@@ -19,15 +19,15 @@ namespace AdventureWorksLibrary.Validators
             RuleFor(N => N.LastName).UniversalStringValidation();
             RuleFor(N => N.Password).UniversalValidation();
             RuleFor(N => N.PhoneNumber).UniversalNumValidation();
-            RuleFor(N => N.PhoneNumberTypeID).UniversalDropdownValidation();
+            RuleFor(N => N.PhoneNumberType).UniversalDropdownValidation();
             RuleFor(N => N.AddressLine1).UniversalValidation();
             RuleFor(N => N.City).UniversalStringValidation();
-            RuleFor(N => N.StateProvinceID).UniversalDropdownValidation();
+            RuleFor(N => N.StateOrProvince).UniversalDropdownValidation();
             RuleFor(N => N.PostalCode).UniversalNumValidation();
             RuleFor(N => N.AddressTypeID).UniversalDropdownValidation();
             RuleFor(N => N.EmailAddress).UniversalValidation()
                 .EmailAddress().WithMessage("Enter A Valid Email For {PropertyName}.");
-            RuleFor(N => N.NationalIDNumber).UniversalNumValidation();
+            RuleFor(N => N.SocialSecurityNumber).UniversalNumValidation();
             RuleFor(N => N.LoginID).UniversalValidation();
             RuleFor(N => N.JobTitle).UniversalStringValidation();
             RuleFor(N => N.BirthDate).NotEmpty()
@@ -38,9 +38,9 @@ namespace AdventureWorksLibrary.Validators
                 .Must(BeAValidHireDate).WithMessage($"Hire Date Must Be On Or Before {DateTime.Now.AddDays(1).ToString("MM/dd/yyyy")}");
             RuleFor(N => N.VacationHours).VacatiionSickHoursValidation();
             RuleFor(N => N.SickLeaveHours).VacatiionSickHoursValidation();
-            RuleFor(N => N.Rate.ToString()).UniversalMoneyValidation();
+            RuleFor(N => N.HourlyPayRate.ToString()).UniversalMoneyValidation();
             RuleFor(N => N.PayFrequency).UniversalDropdownValidation();
-            RuleFor(N => N.DepartmentID).UniversalDropdownValidation();
+            RuleFor(N => N.JobDepartment).UniversalDropdownValidation();
             RuleFor(N => N.StartDate).NotEmpty()
                 .Must(BeAValidStartDate).WithMessage($"Start Date Must Be On Or After {DateTime.Now.AddDays(1).ToString("MM/dd/yyyy")}");
             RuleFor(N => N.Role).UniversalDropdownValidation();
